@@ -12,7 +12,7 @@ fn message_handler(py: Python<'_>, message: String, user_id: i32, chat_id: i32, 
     };
     match command {
         "help" | "ayuda" => help_message(user_id),
-        "siu" => request_url_information(py, user_id,chat_id,message, bot),
+        "siu" | "campus" => request_url_information(py, user_id, chat_id, command.to_string(), bot),
         "calendar" | "calendario" | "feriados" => get_useful_links(user_id, message),
         "mails" => get_emails(user_id, message),
         _ => {
